@@ -2,14 +2,14 @@ from django.shortcuts import render, redirect
 from datawisata.models import Datawisata
 from datawisata.forms import FormDataWisata
 
-def edit(request, id):
-    datawisata = Datawisata.objects.get(pk=id)
+def edit(request, id_wisata):
+    datawisata = Datawisata.objects.get(id=id_wisata)
     template = 'edit.html'
     if request.POST:
         form = FormDataWisata(request.POST, instance=datawisata)
         if form.is_valid():
             form.save()
-            return redirect('ubah', pk=id)
+            return redirect('ubah', id_wisata=id_wisata)
     else:
         form = FormDataWisata(instance=datawisata)
         konteks = {
