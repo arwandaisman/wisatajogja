@@ -1,4 +1,4 @@
-from Django.forms import ModelForm
+from django.forms import ModelForm
 from home.models import Datawisata
 
 class FormDataWisata(ModelForm):

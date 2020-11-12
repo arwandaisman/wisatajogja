@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from home.models import Datawisata
-form home.forms import FormDataWisata
+from home.forms import FormDataWisata
 
 def home(request):
     datawisatas = Datawisata.objects.all()
@@ -20,4 +20,4 @@ def tambah_wisata(request):
     konteks = {
         'form' : form,
     }
-    return 
+    return render(request, 'tambahWisata.html', konteks)
