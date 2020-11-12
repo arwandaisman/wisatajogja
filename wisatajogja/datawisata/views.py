@@ -2,21 +2,7 @@ from django.shortcuts import render, redirect
 from datawisata.models import Datawisata
 from datawisata.forms import FormDataWisata
 
-def edit(request, id_wisata):
-    datawisata = Datawisata.objects.get(id=id_wisata)
-    template = 'edit.html'
-    if request.POST:
-        form = FormDataWisata(request.POST, instance=datawisata)
-        if form.is_valid():
-            form.save()
-            return redirect('ubah', id_wisata=id_wisata)
-    else:
-        form = FormDataWisata(instance=datawisata)
-        konteks = {
-            'form':form,
-            'datawisata':datawisata,
-        }
-    return render(request, template, konteks)
+
 
 
 def datawisata(request):
@@ -28,9 +14,9 @@ def datawisata(request):
 
     return render(request, 'datawisata.html', konteks)
 
-def hapus(request,id):
-    hapus = Datawisata.objects.filter(pk=id).delete()
-    return render(request,'datawisata.html',hapus)
+def hapus(request, id):
+    konteks = Datawisata.objects.filter(pk=id).delete()
+    return redirect('datawisata/')
 
 
 def tambah_wisata(request):
@@ -53,3 +39,20 @@ def tambah_wisata(request):
                 'pesan' : pesan,
             }
     return render(request, 'tambahWisata.html', konteks)
+
+
+def edit(request, id):
+    
+    template = 'edit.html'
+    if request.POST:
+        form = FormDataWisata(request.POST, instance=id)
+        if form.is_valid():
+            form.save()
+            return redirect('ubah', id)
+    else:
+        form = FormDataWisata(instance=id)
+        konteks = {
+            'form':form,
+            'datawisata':datawisata,
+        }
+    return render(request, template, konteks)

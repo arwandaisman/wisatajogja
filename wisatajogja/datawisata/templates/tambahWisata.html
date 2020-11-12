@@ -8,7 +8,12 @@
             {% endif %}
             <form action="/tambah-wisata/" method="POST">
                 {% csrf_token %} {{form.as_p}}
-                <button class="btn btn-primary"> Tambah </button>
+                <table>
+                    <tr>
+                        <td><button class="btn btn-primary"> Tambah </button></td>
+                        <td><a href="/datawisata" class="btn btn-danger"> Kembali </button></td>
+                    </tr>
+                </table>
 
             </form>
         </div>
