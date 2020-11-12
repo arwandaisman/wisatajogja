@@ -1,44 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<center>
-    <h1>TEMPAT WISATA DIY</h1>
-</center>
 
-<h2>Daerah Istimewa Yogyakarta</h2>
-<table border="1 px">
-    <thead <tr>
-        <td>
-            Nama Wisata
-        </td>
-        <td>
-            Kabupaten
-        </td>
-        <td>
-            Wisata
-        </td>
-        <td>
-            Jumlah Pengunjung
-        </td>
-        <td>
-            Aksi
-        </td>
-        </tr>
-    </thead>
-    <tbody>
-        {{namawisata}} {% for d in datawisatas %}
-        <tr>
-            <td>{{d.nama_wisata}} </td>
-            <td>{{d.kabupaten}} </td>
-            <td>{{d.jenis_id}} </td>
-            <td>{{d.jml_pengunjung}} </td>
-
-            <td>
-                <a class="btn btn-sm btn-primary" href="{{d.id}}/edit">Edit</a>
-                <a class="btn btn-sm btn-primary" href="{{d.id}}/hapus">Hapus</a>
-            </td>
-
-        </tr>
-    </tbody>
-    {% endfor %}
-</table>
+<h1>ini adalah home</h1>
 
 {% endblock %}

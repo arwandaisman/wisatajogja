@@ -1,4 +1,43 @@
-{% extend 'base.html'} {% block content%}
-<h2> halaman Data wisata </h2>
+{% extends 'base.html' %} {% block content %}
+
+<h3>Tabel Wisata Daerah Istimewa Yogyakarta</h3>
+<a class="btn btn-sm btn-primary" href="tambah-wisata">Tambah</a><br><br>
+<table class="table table-boardered table-striped">
+    <thead>
+        <tr>
+            <td scope="col">
+                Nama Wisata
+            </td>
+            <td scope="col">
+                Kabupaten
+            </td>
+            <td scope="col">
+                Wisata
+            </td>
+            <td>
+                Jumlah Pengunjung
+            </td>
+            <td scope="col">
+                Aksi
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {{namawisata}} {% for d in datawisatas %}
+        <tr>
+            <td>{{d.nama_wisata}} </td>
+            <td>{{d.kabupaten}} </td>
+            <td>{{d.jenis_id}} </td>
+            <td>{{d.jml_pengunjung}} </td>
+
+            <td>
+                <a class="btn btn-sm btn-primary" href="{% url 'ubah' d.id %}">Edit</a>
+                <a class="btn btn-sm btn-primary" href="{{d.id}}/hapus">Hapus</a>
+            </td>
+
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
 
 {% endblock %}
