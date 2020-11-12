@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %}
+<center>
+    <h1>TEMPAT WISATA DIY</h1>
+</center>
+
+<h2>Daerah Istimewa Yogyakarta</h2>
+
+{{namawisata}} {% for home in datawisatas %}
+<li> {{home.nama_wisata}} </li>
+
+{% endfor %} {% endblock %}
