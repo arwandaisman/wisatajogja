@@ -14,10 +14,15 @@ def datawisata(request):
 
     return render(request, 'datawisata.html', konteks)
 
-def hapus(request, id):
-    konteks = Datawisata.objects.filter(pk=id).delete()
-    return redirect('datawisata/')
+# def hapus(request, id):
+#     konteks = Datawisata.objects.filter(pk=id).delete()
+#     return redirect('datawisata/')
 
+def hapus(request, id_wisata):
+    wisata = Datawisata.objects.filter(id=id_wisata)
+    wisata.delete()
+    return redirect('datawisata')
+    
 
 def tambah_wisata(request):
     if request.POST:
@@ -41,16 +46,16 @@ def tambah_wisata(request):
     return render(request, 'tambahWisata.html', konteks)
 
 
-def edit(request, id):
-    
+def edit(request, id_wisata):
+    wisata = Datawisata.objects.get(id=id_wisata)
     template = 'edit.html'
     if request.POST:
-        form = FormDataWisata(request.POST, instance=id)
+        form = FormDataWisata(request.POST, instance=wisata)
         if form.is_valid():
             form.save()
-            return redirect('ubah', id)
+            return redirect('ubah', id_wisata=id_wisata)
     else:
-        form = FormDataWisata(instance=id)
+        form = FormDataWisata(instance=wisata)
         konteks = {
             'form':form,
             'datawisata':datawisata,

@@ -19,9 +19,9 @@ def home(request):
 #     return render(request, 'tambahWisata.html', konteks)
 
 
-# # def hapus(request,id):
-# #     hapus = Datawisata.objects.filter(pk=id).delete()
-# #     return render(request,'halamanutama.html',hapus)
+# def hapus(request,id):
+#     hapus = Datawisata.objects.filter(pk=id).delete()
+#     return render(request,'halamanutama.html',hapus)
 
 # def edit(request,id):
 #     edit = Datawisata.object.get(pk=id)

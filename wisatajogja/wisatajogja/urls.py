@@ -11,8 +11,9 @@ urlpatterns = [
     path('datawisata/tambah-wisata/', tambah_wisata),
     path('tambah-wisata/', tambah_wisata),
     path('datawisata/', datawisata),
-    path('datawisata/<id>/edit',edit),
-    path('datawisata/<id>/hapus',hapus),
+    path('datawisata/edit/<int:id_wisata>',edit, name='ubah'),
+    # path('datawisata/<id>/hapus',hapus),
+    path('datawisata/hapus/<int:id_wisata>',hapus, name="hapus"),
 
     # path('<id>/hapus', hapus),
     # path('datawisata/ubah/<int:id>', edit, name='ubah'),
